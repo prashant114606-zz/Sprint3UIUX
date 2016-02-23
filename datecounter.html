@@ -51,7 +51,7 @@
     function calcDateCount() {
         var mydate = document.getElementById("datepicker").value;
         var mydob = new Date(mydate);
-        var age = Date.now() - mydob + (5.5 * 60 * 60 * 1000);
+        var age = Date.now() - mydob ;
         var ms_in_day = 24 * 60 * 60 * 1000;
         var days = Math.floor(age / ms_in_day);
         var age_h = age % ms_in_day;
