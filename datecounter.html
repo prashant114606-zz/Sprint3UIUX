@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 ​
+
 <head>
     <meta charset="UTF-8">
     <title>Date Counter</title>
     <style type="text/css" media="screen">
-    body{
-      margin: 0;
-      padding: 0;
-      font-family: "Times New Roman", Georgia, Serif;
-      background-image: url(images/kk.jpg);
-      font-size:20px;
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Times New Roman", Georgia, Serif;
+        background-image: url(images/kk.jpg);
+        font-size: 20px;
+    }
 
+    h1,
+    h3 {
+        border-bottom: 2px inset #bbb;
+        padding-bottom: 1em;
+        font-family: "Times New Roman", Georgia, Serif;
+        ;
+        color: #eeeeee;
     }
-    h1,h3{
-      border-bottom: 2px inset #bbb;
-      padding-bottom: 1em;
-      font-family: "Times New Roman", Georgia, Serif;;
-      color:#eeeeee;
-    }
+
     table {
         border: 2px solid #999;
         box-shadow: 1px 1px 1px 1px #ddd;
-        color:#eeeeee;
-        font-size:30px;
-
+        color: #eeeeee;
+        font-size: 30px;
     }
+
     td {
         border: 1px solid #999;
         box-shadow: 1px 1px #ddd;
         padding: 2px;
     }
 
+    #ui-datepicker-div {
+        background-color: black;
+        color: white;
+    }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
+    $(document).ready(function() {
+        $("#datepicker").datepicker();
+    });
+
     function calcDateCount() {
-        var mydate = document.getElementById("date-input").value;
+        var mydate = document.getElementById("datepicker").value;
         var mydob = new Date(mydate);
-        var age = Date.now() - mydob + (5.5*60*60*1000);
+        var age = Date.now() - mydob + (5.5 * 60 * 60 * 1000);
         var ms_in_day = 24 * 60 * 60 * 1000;
         var days = Math.floor(age / ms_in_day);
         var age_h = age % ms_in_day;
@@ -53,6 +67,7 @@
     </script>
 </head>
 ​
+
 <body>
     <center>
         <h1>Date Counter</h1>
@@ -70,7 +85,8 @@
                 <tr>
                     <td>Date of birth</td>
                     <td>
-                        <input type="datetime-local" id="date-input" />
+                        <!-- <input type="datetime-local" id="date-input" />-->
+                        <input type="date-picker" id="datepicker" />
                     </td>
                 </tr>
                 <tr>
@@ -102,5 +118,5 @@
     </center>
 </body>
 ​
-</html>
 
+</html>
